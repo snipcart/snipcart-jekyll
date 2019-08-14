@@ -1,0 +1,259 @@
+---
+# Only the main Sass file needs front matter (the dashes are enough)
+---
+
+@charset "utf-8";
+@import url("https://fonts.googleapis.com/css?family=Muli:400,700&display=swap");
+
+// Variables
+$color--default: #3a3a3a;
+$color--light: lighten($color--default, 65%);
+$color--primary: #429bfc;
+$color--secondary: #429bfc;
+$color--background: #f8faff;
+
+$size--unit: 8px;
+
+$layout--max-width: 1000px;
+
+// Default styling
+* {
+  box-sizing: border-box;
+  font-family: "Muli", sans-serif;
+  font-size: $size--unit * 2;
+  color: $color--default;
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  background-color: $color--background;
+}
+
+// Mixins
+@mixin sm {
+  @media (max-width: #{$layout--max-width}) {
+    @content;
+  }
+}
+
+@mixin ms {
+  @media (min-width: #{$layout--max-width}) {
+    @content;
+  }
+}
+
+@mixin button-hover($color) {
+  position: relative;
+  z-index: 2;
+
+  &:hover {
+    transition: 0.2s all;
+    background-color: darken($color, 10%);
+    &:before {
+      transform: scale(1.1, 1.5);
+    }
+  }
+
+  &:before {
+    content: " ";
+    position: absolute;
+    background-color: $color;
+    top: 0;
+    left: 0;
+    border-radius: 4px;
+    width: 100%;
+    height: 100%;
+    opacity: 0.4;
+    z-index: -1;
+    transform: scale(1);
+    transition: all 0.3s cubic-bezier(0.16, 0.8, 0.66, 1.54);
+  }
+}
+
+@mixin fit-to-layout-and-center {
+  width: 100%;
+  max-width: $layout--max-width;
+  margin-left: auto;
+  margin-right: auto;
+  @include sm {
+    padding-left: $size--unit * 3;
+    padding-right: $size--unit * 3;
+  }
+}
+
+// Components
+.header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  margin-bottom: $size--unit * 6;
+  padding-top: $size--unit * 4;
+  padding-bottom: $size--unit * 4;
+  border-bottom: 1px solid $color--light;
+
+  &__container {
+    display: flex;
+    justify-content: center;
+    @include fit-to-layout-and-center;
+  }
+
+  &__branding {
+    all: unset;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__logo {
+    max-height: $size--unit*4;
+    margin-right: $size--unit*1;
+  }
+
+  &__title {
+    font-weight: bold;
+    font-size: $size--unit * 3;
+    cursor: pointer;
+  }
+
+  &__checkout {
+    all: unset;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+    font-weight: bold;
+    svg {
+      margin-right: $size--unit * 1;
+    }
+  }
+
+  &__checkout-fill {
+    fill: $color--primary;
+  }
+}
+
+.main {
+  @include fit-to-layout-and-center;
+}
+
+.product {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  &:nth-of-type(even) {
+    flex-direction: row-reverse;
+  }
+
+  &:nth-last-of-type(odd) & {
+    &__information {
+      margin-left: 0;
+      margin-right: $size--unit * 4;
+      @include sm {
+        margin-right: 0;
+      }
+    }
+
+    &__image {
+      transform: perspective(650px) rotateZ(5deg) rotateX(-2.5deg) rotateY(-15deg) scale(0.8) translateX(30px);
+      box-shadow: 30px 30px 50px transparentize(darken($color--primary, 50%), 0.9);
+      @include sm {
+        transform: perspective(650px) rotateZ(5deg) rotateX(-2.5deg) rotateY(-15deg) scale(0.8) translateX(-30px);
+      }
+    }
+  }
+
+  &:not(:last-child) {
+    margin-bottom: $size--unit * 12;
+  }
+
+  @include sm {
+    flex-direction: column;
+    &:nth-of-type(even) {
+      flex-direction: column;
+    }
+    justify-content: center;
+  }
+
+  &__information {
+    flex: 1;
+    margin-left: $size--unit * 4;
+    @include sm {
+      margin-left: 0;
+    }
+  }
+
+  &__image {
+    flex: 1;
+    height: 100%;
+    width: 100%;
+    max-width: 500px;
+    max-height: 400px;
+    background-size: cover;
+    transform: perspective(650px) rotateZ(-5deg) rotateX(2.5deg) rotateY(15deg) scale(0.8) translateX(-30px);
+    box-shadow: -30px 30px 50px transparentize(darken($color--primary, 50%), 0.9);
+    @include sm {
+      transform: perspective(650px) rotateZ(5deg) rotateX(-2.5deg) rotateY(-15deg) scale(0.8) translateX(-30px);
+      box-shadow: 30px 30px 50px transparentize(darken($color--primary, 50%), 0.9);
+      &:last-child {
+        display: none;
+      }
+    }
+
+    @include ms {
+      &:not(:last-child) {
+        display: none;
+      }
+    }
+    margin-right: auto;
+    border-radius: $size--unit;
+  }
+
+  &__title {
+    margin-top: 0;
+    font-size: $size--unit * 5;
+  }
+
+  &__description {
+    font-size: $size--unit * 2.5;
+    line-height: $size--unit * 3.5;
+  }
+}
+
+.buy-button {
+  all: unset;
+  color: white;
+  background-color: $color--primary;
+  border: 1px solid darken($color--primary, 3%);
+  text-shadow: 2px 2px 5px darken($color--primary, 3%);
+  border-radius: 3px;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 12px;
+  letter-spacing: 2px;
+  padding: $size--unit * 2;
+  padding-left: $size--unit * 3;
+  padding-right: $size--unit * 3;
+  margin-top: $size--unit * 2;
+  @include button-hover($color--primary);
+}
+
+.footer {
+  border-top: 1px solid $color--light;
+  margin-top: $size--unit * 12;
+  &__content {
+    display: flex;
+    @include fit-to-layout-and-center();
+    padding-top: $size--unit * 4;
+    padding-bottom: $size--unit * 4;
+  }
+
+  &__socials {
+    margin-left: auto;
+  }
+}
+
+.snipcart-layout__header {
+  min-height: 80px;
+}
