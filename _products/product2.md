@@ -1,5 +1,5 @@
 ---
-id: jekyll-test
+identifier: jekyll-irises
 name: Irises
 price: 64.95
 image: /assets/images/irises.jpg

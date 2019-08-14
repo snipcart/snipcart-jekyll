@@ -1,5 +1,5 @@
 ---
-id: jekyll-test
+identifier: jekyll-almond
 name: Branches with Almond Blossom
 price: 99.95
 image: /assets/images/almond.jpg
