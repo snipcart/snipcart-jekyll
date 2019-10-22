@@ -32,6 +32,13 @@ body {
 }
 
 // Mixins
+
+@mixin xsm {
+    @media (max-width: 724px) {
+        @content;
+    }
+}
+
 @mixin sm {
   @media (max-width: #{$layout--max-width}) {
     @content;
@@ -256,4 +263,50 @@ body {
 
 .snipcart-layout__header {
   min-height: 80px;
+}
+
+.go-back {
+    display: flex;
+    color: white;
+    padding-top: $size--unit*3;
+    padding-bottom: $size--unit*3;
+    background-color: #888f91;
+    box-shadow: 0px 0px 10px transparentize($color--default, 0.8);
+    border-bottom: 1px solid darken(#888f91, 5%);
+
+    &__container {
+        @include fit-to-layout-and-center;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        @include xsm {
+            flex-direction: column;
+            text-align: center;
+
+            a {
+                margin-bottom: $size--unit*2;
+            }
+        }
+
+        a, span {
+            color: white;
+        }
+
+        a {
+            display: inline-block;
+            background-color: #f6e770;
+            box-shadow: 0px 3px 16px darken(#888f91, 5%);
+            &:hover {
+                transition: background-color 0.25s;
+                background-color: darken(#f6e770, 5%);
+            }
+            padding: $size--unit*1;
+            padding-left: $size--unit*3;
+            padding-right: $size--unit*3;
+            color: $color--default;
+            text-decoration: none;
+            border-radius: 4px;
+            text-transform: uppercase;
+        }
+    }
 }
