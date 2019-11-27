@@ -18,7 +18,7 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 
-title: ReplicaZone - Snipcart Demo
+title: ReplicaZone
 email: geeks@snipcart.com
 description: >- # this means to ignore newlines until "baseurl:"
   This demo store is a Jekyll-built static site. The shopping cart runs on Snipcart—it lets you add custom e-commerce to any site in minutes.
