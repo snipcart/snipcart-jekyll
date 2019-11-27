@@ -13,4 +13,5 @@ This repo and tutorial show you how to integrate Snipcart with Jekyll for static
 - Deploying a Jekyll e-commerce website
 
 > Read the [blog post](https://snipcart.com/blog/jekyll-ecommerce-tutorial)
+
 > Try the [demo](https://demo.snipcart.com/)
