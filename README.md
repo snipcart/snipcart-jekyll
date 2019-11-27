@@ -4,6 +4,8 @@
 
 This repo and tutorial show you how to integrate Snipcart with Jekyll for static e-commerce.
 
+Please note that this demo uses Snipcart's latest version, the v3.0.
+
 ## Tutorial steps 🛠
 
 - Installing Ruby & Jekyll
