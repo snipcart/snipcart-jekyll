@@ -1,12 +1,10 @@
-# Jekyll E-Commerce Tutorial: Add a Shopping Cart to Your Static Website
+# Adding a shopping cart to your static Jekyll site
 
 ![jekyll-ecommerce](https://snipcart.com/media/204664/jekyll-ecommerce.png)
 
-This post explores Jekyll for one specific use case: e-commerce.
+This repo and tutorial show you how to integrate Snipcart with Jekyll for static e-commerce.
 
-So after going through this SSGs’ basics and why it’s a good option for e-commerce projects, I show you how to build a fully functioning Jekyll shop.
-
-Tutorial steps 🛠
+## Tutorial steps 🛠
 
 - Installing Ruby & Jekyll
 - Creating a collection
@@ -14,7 +12,5 @@ Tutorial steps 🛠
 - Integrating a shopping cart
 - Deploying a Jekyll e-commerce website
 
-Let’s do this!
-
 > Read the [blog post](https://snipcart.com/blog/jekyll-ecommerce-tutorial)
-> Try the [demo](https://snipcart-jekyll.netlify.com/#/)
+> Try the [demo](https://demo.snipcart.com/)
