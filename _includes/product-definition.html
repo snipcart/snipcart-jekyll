@@ -1,10 +1,31 @@
+<div>
+  <label for="{{ product.identifier }}-qty">Quantity:</label>
+  <input type="number" id="{{ product.identifier }}-qty" class="qty" min="1" value="1" />
+  <button
+    class="buy-button snipcart-add-item"
+    data-item-quantity="1"
+    data-item-id="{{ product.identifier }}"
+    data-item-name="{{ product.name }}"
+    data-item-price="{{ product.price }}"
+    data-item-image="{{ product.image }}"
+    data-item-url="https://demo.snipcart.com{{ page.url }}"
+    data-item-description="{{ product.content | remove: '<p>' | remove: '</p>' }}">
+    Buy 1 physical copy (${{ product.price }})
+  </button>
+</div>
+
+
+{% if product.file_guid %}
 <button
   class="buy-button snipcart-add-item"
-  data-item-id="{{ product.identifier }}"
-  data-item-name="{{ product.name }}"
-  data-item-price="{{ product.price }}"
+  data-item-id="{{ product.identifier }}-DIGITAL"
+  data-item-file-guid="{{ product.file_guid }}"
+  data-item-name="{{ product.name}} - Digital copy (JPG)"
+  data-item-price="{{ product.price | minus: 20 }}"
   data-item-image="{{ product.image }}"
-  data-item-url="https://snipcart-jekyll.netlify.com{{ page.url }}"
+  data-item-url="https://demo.snipcart.com{{ page.url }}"
   data-item-description="{{ product.content | remove: '<p>' | remove: '</p>' }}">
-  Add to cart (${{ product.price }})
+  Buy digital copy (JPG) (${{ product.price | minus: 20 }})
 </button>
+{% endif %}
+

@@ -233,7 +233,14 @@ body {
   }
 }
 
+.qty{
+  background-color: transparent;
+  border:none;
+  width: 45px;  
+}
+
 .buy-button {
+  cursor: pointer;
   all: unset;
   color: white;
   background-color: $color--primary;
@@ -248,6 +255,7 @@ body {
   padding-left: $size--unit * 3;
   padding-right: $size--unit * 3;
   margin-top: $size--unit * 2;
+  display:block;
   @include button-hover($color--primary);
 }
 
