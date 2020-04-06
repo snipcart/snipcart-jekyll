@@ -154,6 +154,11 @@ body {
   display: flex;
   align-items: center;
   flex-direction: row;
+  /**
+   * prevent children elements from "bleeding through" in 3D space
+   * by creating a 3D transform container in the parent
+   */
+  transform: translate3d(0px, 0px, 0px);
   &:nth-of-type(even) {
     flex-direction: row-reverse;
   }
