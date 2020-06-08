@@ -1,4 +1,4 @@
-window.addEventListener('DOMContentLoaded', (event) => {
+window.addEventListener('DOMContentLoaded', function(event) {
     document.addEventListener('change', function(evt){
         console.log(evt.target.classList)
         if(evt.target.classList.contains('qty')){
