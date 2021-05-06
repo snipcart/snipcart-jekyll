@@ -16,4 +16,4 @@ Please note that this demo uses Snipcart's latest version, the v3.0.
 
 > Read the [blog post](https://snipcart.com/blog/jekyll-ecommerce-tutorial)
 
-> Try the [demo](https://demo.snipcart.com/)
+> Try the [demo](https://snipcart-jekyll.netlify.app)
